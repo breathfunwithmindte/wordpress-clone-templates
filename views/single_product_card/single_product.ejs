@@ -1,1 +1,99 @@
-<h1>hello world</h1>
+<div class="singleproduct-primary-container d-flex justify-content-between">
+    <div class="singleproduct-images-container d-flex justify-content-between">
+        <div class="singleproduct-images-relative d-flex flex-column justify-content-start">
+            asdasd
+        </div>
+        <div class="singleproduct-images-main-wrapper">
+            <img src="<%= single_product.product.primary_image %>" class="singleproduct-images-main" width="100%" height="auto" />
+        </div>
+    </div>
+    <div class="singleproduct-secondary-container">
+        <div class="singleproduct-secondary-maintext-wrapper">
+            <h1><%= single_product.product.primary_image %></h1>
+            <p><%= single_product.product.primary_image %></p>
+        </div>
+
+        <%# size check if product has options for size %>
+        <% if(true) { %>
+
+        <% } %>
+        
+        <% if(true) { %>
+
+        <% } %>
+
+        <% if(true) { %>
+
+        <% } %>
+    </div>
+
+</div>
+
+<script>
+    const SIZE_IS_REQUIRED = true;
+    const COLOR_IS_REQUIRED = true;
+    
+
+</script>
+
+<style>
+    :root {
+        --sproduct__width: 100%;
+        --sproduct__background: inherit;
+        --sproduct__primary_width: 46%;
+        --sproduct__secondary_width: 46%;
+        --sproduct__images_relative_width: clamp(56px, 12vw, 128px);
+        --sproduct__images_height: clamp(492px, 56vh, 693px);
+        --sproduct__width: ;
+        --sproduct__width: ;
+    }
+    /**
+
+    */
+    .singleproduct-primary-container {
+        width: var(--sproduct__width);
+        background: var(--sproduct__background);
+    }
+    .singleproduct-images-container {
+        width: var(--sproduct__primary_width);
+        border: 1px solid blue;
+        min-width: 314px;
+        height: var(--sproduct__images_height);
+        overflow: hidden;
+    }
+    .singleproduct-secondary-container {
+        border: 1px solid red;
+        width: var(--sproduct__secondary_width);
+        min-width: 314px;
+        overflow: hidden;
+    }
+
+    .singleproduct-images-relative {
+        width: var(--sproduct__images_relative_width);
+        background-color: aqua;
+    }
+    .singleproduct-images-main-wrapper {
+        height: 100%;
+        width: calc(100% - var(--sproduct__images_relative_width));
+    }
+    .singleproduct-images-main {
+        max-width: 100%;
+        max-height: 100%;
+        border: 1rem solid red
+    }
+
+
+    @media(max-width: 693px) {
+        .singleproduct-primary-container {
+            background: red !important;
+            flex-wrap: wrap;
+        }
+        .singleproduct-images-container {
+            width: 100%;
+        }
+        .singleproduct-secondary-container {
+            width: 100%;
+        }
+    }
+
+</style>

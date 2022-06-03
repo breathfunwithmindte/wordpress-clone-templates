@@ -9,9 +9,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div style="width: 80%; height: 80vh; overflow-y: auto">
-        <%- include("./single_product_card/single_product.ejs", { props: { product: { 
-            title: "", id: "thisisid", primary_image: "", behind_image: "" 
+    <div style="width: 80%; height: 80vh; overflow-y: auto; border: 1px solid red; background: var(--background)">
+        <%- include("./single_product_card/single_product.ejs", { single_product: { product: { 
+            title: "", 
+            id: "thisisid", 
+            primary_image: "https://www.e-shoes.gr/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/a/n/andrikes-sagionares-bsoft-151-10987-blue_01.jpg", 
+            behind_image: "https://www.e-shoes.gr/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/a/n/andrikes-sagionares-bsoft-151-10987-blue_01.jpg",
+            images: [] 
         } } }) %>
     </div>
 </body>
