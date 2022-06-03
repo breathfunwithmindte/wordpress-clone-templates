@@ -1,16 +1,27 @@
 <div class="singleproduct-primary-container d-flex justify-content-between">
     <div class="singleproduct-images-container d-flex justify-content-between">
-        <div class="singleproduct-images-relative d-flex flex-column justify-content-start">
-            asdasd
+        <div class="singleproduct-images-relative d-flex flex-column justify-content-start align-items-center p-2">
+            <% for(let i = 0; i < single_product.product.images.length; i++) { const ii = single_product.product.images[i] %>
+                <img id="img_<%= ii %>" src="<%= ii %>" onclick="single_product_update_image_card(event)" /> 
+            <% } %>
+            <% for(let i = 0; i < single_product.product.images.length; i++) { const ii = single_product.product.images[i] %>
+                <img id="img_<%= ii %>" src="<%= ii %>" onclick="single_product_update_image_card(event)" /> 
+            <% } %>
+            <% for(let i = 0; i < single_product.product.images.length; i++) { const ii = single_product.product.images[i] %>
+                <img id="img_<%= ii %>" src="<%= ii %>" onclick="single_product_update_image_card(event)" /> 
+            <% } %>
+            <% for(let i = 0; i < single_product.product.images.length; i++) { const ii = single_product.product.images[i] %>
+                <img id="img_<%= ii %>" src="<%= ii %>" onclick="single_product_update_image_card(event)" /> 
+            <% } %>
         </div>
-        <div class="singleproduct-images-main-wrapper">
-            <img src="<%= single_product.product.primary_image %>" class="singleproduct-images-main" width="100%" height="auto" />
+        <div class="singleproduct-images-main-wrapper d-flex justify-content-center align-items-center">
+            <img id="singleproduct-images-main" src="<%= single_product.product.primary_image %>" class="singleproduct-images-main" width="100%" height="auto" />
         </div>
     </div>
     <div class="singleproduct-secondary-container">
         <div class="singleproduct-secondary-maintext-wrapper">
-            <h1><%= single_product.product.primary_image %></h1>
-            <p><%= single_product.product.primary_image %></p>
+            <h1 style="font-size: 1.97rem;"><%= single_product.product.title %></h1>
+            <p>Product code: <span style="font-weight: 500;"><%= single_product.product.product_code %></span></p>
         </div>
 
         <%# size check if product has options for size %>
@@ -33,6 +44,21 @@
     const SIZE_IS_REQUIRED = true;
     const COLOR_IS_REQUIRED = true;
     
+    
+    
+    const ALL_IMAGES = "<%= single_product.product.images.join(";;;") %>" 
+    
+    function single_product_update_image_card (e)
+    {
+        e.target.style.border = "1px solid red";
+        ALL_IMAGES.split(";;;").map(i => {
+            if(i === e.target.id.substring(4, e.target.id.length)) return;
+            const img = document.getElementById("img_" + i);
+            if(!img) return;
+            img.style.border = "none";
+        })
+        document.getElementById("singleproduct-images-main").src = e.target.id.substring(4, e.target.id.length);
+    }
 
 </script>
 
@@ -42,7 +68,7 @@
         --sproduct__background: inherit;
         --sproduct__primary_width: 46%;
         --sproduct__secondary_width: 46%;
-        --sproduct__images_relative_width: clamp(56px, 12vw, 128px);
+        --sproduct__images_relative_width: 56px;
         --sproduct__images_height: clamp(492px, 56vh, 693px);
         --sproduct__width: ;
         --sproduct__width: ;
@@ -56,7 +82,6 @@
     }
     .singleproduct-images-container {
         width: var(--sproduct__primary_width);
-        border: 1px solid blue;
         min-width: 314px;
         height: var(--sproduct__images_height);
         overflow: hidden;
@@ -64,22 +89,35 @@
     .singleproduct-secondary-container {
         border: 1px solid red;
         width: var(--sproduct__secondary_width);
+        padding: 0px 1rem;
         min-width: 314px;
         overflow: hidden;
     }
 
     .singleproduct-images-relative {
         width: var(--sproduct__images_relative_width);
-        background-color: aqua;
+        height: 100%;
+        overflow-y: auto;
+    }
+    .singleproduct-images-relative img {
+        width: calc(var(--sproduct__images_relative_width) - 14px);
+        height: calc(var(--sproduct__images_relative_width) - 14px);
+        border-radius: 3.4px;
+        cursor: pointer;
+        margin-bottom: 1.34rem;
     }
     .singleproduct-images-main-wrapper {
         height: 100%;
+        overflow: hidden;
         width: calc(100% - var(--sproduct__images_relative_width));
     }
     .singleproduct-images-main {
-        max-width: 100%;
-        max-height: 100%;
-        border: 1rem solid red
+        width: 75%;
+        min-width: 75%;
+        max-width: 92%;
+        min-height: 56%;
+        height: auto;
+        max-height: 114%;
     }
 
 

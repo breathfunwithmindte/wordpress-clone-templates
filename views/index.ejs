@@ -9,13 +9,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div style="width: 80%; height: 80vh; overflow-y: auto; border: 1px solid red; background: var(--background)">
+    <div style="width: 56%; margin-left: 23%; height: 80vh; overflow-y: auto; border: 1px solid red; background: var(--background); padding: 3rem">
         <%- include("./single_product_card/single_product.ejs", { single_product: { product: { 
-            title: "", 
+            title: "Samsung Galaxy A52s 5G Dual SIM (6GB/128GB) Awesome Black", 
             id: "thisisid", 
+            product_code: "C1BS53BIP2-0763",
             primary_image: "https://www.e-shoes.gr/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/a/n/andrikes-sagionares-bsoft-151-10987-blue_01.jpg", 
             behind_image: "https://www.e-shoes.gr/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/a/n/andrikes-sagionares-bsoft-151-10987-blue_01.jpg",
-            images: [] 
+            images: [
+                "https://d.scdn.gr/images/sku_main_images/030662/30662995/xlarge_20210830101603_samsung_galaxy_a52s_128gb_awesome_black.jpeg",
+                "https://c.scdn.gr/images/sku_images/049531/49531919/20210830101603_e27497d0.jpeg",
+                "https://a.scdn.gr/images/sku_images/049531/49531917/20210830101602_93c2d7a1.jpeg"
+            ]
         } } }) %>
     </div>
 </body>
